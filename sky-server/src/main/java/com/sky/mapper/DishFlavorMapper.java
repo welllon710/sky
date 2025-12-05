@@ -1,0 +1,17 @@
+package com.sky.mapper;
+
+
+import com.sky.entity.DishFlavor;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+
+@Mapper
+public interface DishFlavorMapper {
+
+    void saveFlavors(List<DishFlavor> flavors);
+
+    void delFlavors(List<Long> ids);
+
+    void updateFlavors(List<DishFlavor> flavors);
+}

@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,5 +52,11 @@ public class CategoryController {
         log.info("status={}", status);
         categoryService.status(status, id);
         return Result.success();
+    }
+    @GetMapping("/list")
+    public Result list(@RequestParam Integer type) {
+        log.info("list-type={}", type);
+        List<Category> list = categoryService.list(type);
+        return Result.success(list);
     }
 }
